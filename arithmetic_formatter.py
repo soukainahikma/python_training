@@ -26,8 +26,9 @@ def printer(res,get_ans):
 		result = result + ('-' * (len_ +1))
 		if elt != res[len(res)-1]:
 			result = result+ '    '
-	result = result + '\n'
+	
 	if get_ans == True:
+		result = result + '\n'
 		for elt in res:
 			len_ = max(len(str(elt[0])),len(str(elt[2])))+2
 			
@@ -41,8 +42,7 @@ def printer(res,get_ans):
 def liste_len(problems):
 	len_ = len(problems)
 	if len_ > 5:
-		print("Error: Too many problems.")
-		return(0)
+		return("Error: Too many problems.")
 	return(1)
 def get_solution(x1,operation ,x2,ans = False):
 	liste = []
@@ -71,8 +71,8 @@ def get_solution(x1,operation ,x2,ans = False):
 def arithmetic_arranger(problems,get_ans = False):
 	error = liste_len(problems)
 	affichage = []
-	if error == 0:
-		return("")
+	if not(isinstance(error,int)):
+		return(error)
 	for x in problems:
 		res = x.split()
 		if not(isinstance(get_solution(res[0],res[1] ,res[2],get_ans),list)):
